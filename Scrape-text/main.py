@@ -10,13 +10,13 @@ def get_driver():
   options.add_experimental_option("excludeSwitches", ["enable-automation"]) #flags to exclude the browser's automation switch
   options.add_argument("disable-blink-features=AutomationControlled")
   
-  driver = webdriver.Chrome(options=options)
+  driver = webdriver.Chrome(options)
   driver.get("http://automated.pythonanywhere.com")
   return driver
 
 def main():
   driver = get_driver()
   element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[1]")
-  return element.text
+  return element
 
 print(main())
